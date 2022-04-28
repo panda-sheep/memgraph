@@ -91,7 +91,7 @@ class Listener final : public std::enable_shared_from_this<Listener<TSession, TS
       return;
     }
 
-    acceptor_.listen(boost::asio::socket_base::max_listen_connections, ec);
+    acceptor_.listen(16384, ec);
     if (ec) {
       OnError(ec, "listen");
       return;
